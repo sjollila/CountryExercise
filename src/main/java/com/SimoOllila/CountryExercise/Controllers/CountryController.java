@@ -1,4 +1,5 @@
 package com.SimoOllila.CountryExercise.Controllers;
+import com.SimoOllila.CountryExercise.DTOs.CountriesRoot;
 import com.SimoOllila.CountryExercise.DTOs.CountryBaseDto;
 import com.SimoOllila.CountryExercise.Models.Country;
 import com.SimoOllila.CountryExercise.Services.CountryService;
@@ -33,9 +34,11 @@ public class CountryController {
     }
 
     @GetMapping("/countries")
-    public ArrayList<CountryBaseDto> getCountries()
+    public CountriesRoot getCountries()
     {
-        return CountryMapper.INSTANCE.convert(countryService.getAllCountries());
+        CountriesRoot countriesRoot = new CountriesRoot();
+        countriesRoot.setCountries(CountryMapper.INSTANCE.convert(countryService.getAllCountries()));
+        return countriesRoot;
     }
 
     @RequestMapping("/countries/{name}")

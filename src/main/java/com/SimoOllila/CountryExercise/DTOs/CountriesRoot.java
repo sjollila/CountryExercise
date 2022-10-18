@@ -1,15 +1,17 @@
 package com.SimoOllila.CountryExercise.DTOs;
 
+import java.util.ArrayList;
+
 public class CountriesRoot {
-    CountryBaseDto[] countries;
+    ArrayList<CountryBaseDto> countries;
 
     // Getter
-    public CountryBaseDto[] getName() {
+    public ArrayList<CountryBaseDto> getCountries() {
         return countries;
     }
 
     // Setter
-    public void setName(CountryBaseDto[] newCountries) {
+    public void setCountries(ArrayList<CountryBaseDto> newCountries) {
         this.countries = newCountries;
     }
 }
