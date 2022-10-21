@@ -15,17 +15,22 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- *
- * @author Adam
- *
+ * This class contains all the functionality to get JSon schema from the service and convert it into Country classes
+ * Services:
+ * getResource
  */
 public class CountryHttpClient {
+    //TODO put BASEURL into some propertyfile
     private final String BASEURL = "https://restcountries.com/v3.1/";
     private String JSONSTRING = "";
 
+    /**
+     *
+     * @param path                  name of the Country searched. e.g. Finland. Notice the uppercase first letter.
+     * @return ArrayList<Country>
+     */
     public ArrayList<Country> getResource(String path) {
-        ArrayList<Country> list = queryAPI(path);
-        return list;
+        return queryAPI(path);
     }
     public ArrayList<Country> queryAPI(String path) {
         try {
@@ -215,7 +220,7 @@ public class CountryHttpClient {
     }
 
     public ArrayList<Currency> generateCountryCurrency(JsonNode data) {
-        ArrayList<Currency> list = new ArrayList<Currency>();
+        ArrayList<Currency> list = new ArrayList<>();
         Iterator<String> fieldNames = data.path("currencies").fieldNames();
         while (fieldNames.hasNext()) {
             String fieldName = fieldNames.next();

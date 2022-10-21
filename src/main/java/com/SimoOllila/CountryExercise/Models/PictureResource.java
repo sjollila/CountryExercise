@@ -5,10 +5,6 @@
  */
 package com.SimoOllila.CountryExercise.Models;
 
-/**
- *
- * @author Adam
- */
 public class PictureResource {
 
     String png;

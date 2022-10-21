@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * This is the main class for country data and it is used to make DTO objects
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "name",
@@ -72,7 +75,6 @@ public class Country {
     @JsonProperty("unMember")
     private Boolean unMember;
     @JsonProperty("currencies")
-//    private Currencies currencies;
     ArrayList<Currency> currencies;
     @JsonProperty("idd")
     private Idd idd;
@@ -85,7 +87,6 @@ public class Country {
     @JsonProperty("subregion")
     private String subregion;
     @JsonProperty("languages")
-//    private Languages languages;
     ArrayList<Language> languages;
     @JsonProperty("translations")
     private ArrayList<Translation> translations;
@@ -486,10 +487,4 @@ public class Country {
         this.additionalProperties.put(name, value);
     }
 
-    public String getSingleFormat(){
-        return String.format("{name:\"%s\",country_code:\"%s\",population:%d,flag_file_url:\"%s\"}", name.getCommon(), cca2, population, flags.getPng());
-    }
-    public String getAllFormat(){
-        return String.format("{name:\"%s\",country_code:\"%s\",population:%d,flag_file_url:\"%s\"}", name.getCommon(), cca2, population, flags.getPng());
-    }
 }

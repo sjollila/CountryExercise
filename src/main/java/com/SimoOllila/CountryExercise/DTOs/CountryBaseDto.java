@@ -3,6 +3,9 @@ package com.SimoOllila.CountryExercise.DTOs;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * DTO for service that needs all Country classes
+ */
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class CountryBaseDto {
     private String name;

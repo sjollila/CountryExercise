@@ -11,8 +11,10 @@ import com.SimoOllila.CountryExercise.Models.*;
 import org.springframework.stereotype.Service;
 
 /**
- *
- * @author Adam
+ * This class is what the controller calls to get Country classes for the UI
+ * Available services:
+ * getAllCountries
+ * getCountryByName
  */
 @Service
 public class CountryService {
@@ -23,52 +25,20 @@ public class CountryService {
         return countryService.getResource(path);
     }
 
-
+    /**
+     *
+     * @return ArrayList<Country>
+     */
     public ArrayList<Country> getAllCountries() {
         return useService("all");
     }
 
+    /**
+     *
+     * @param name Name for the country searched. e.g. Finland
+     * @return ArrayList<Country>
+     */
     public ArrayList<Country> getCountryByName(String name) {
         return useService("name/" + name);
-    }
-
-    public ArrayList<Country> getCountryByFullName(String name) {
-        return useService("name/" + name + "?fulltext=true");
-    }
-
-    public ArrayList<Country> getCountryByCode(String code) {
-        return useService("alpha/" + code);
-    }
-
-    public ArrayList<Country> getCountryByCodeList(String codeList) {
-        return useService("alpha?codes=" + codeList);
-    }
-
-    public ArrayList<Country> getCountryByCurrency(String currency) {
-        return useService("currency/" + currency);
-    }
-
-    public ArrayList<Country> getCountryByLanguage(String lang) {
-        return useService("lang/" + lang);
-    }
-
-    public ArrayList<Country> getCountryByTranslation(String translation) {
-        return useService("translation/" + translation);
-    }
-
-    public ArrayList<Country> getCountryByCapitalCity(String capital) {
-        return useService("capital/" + capital);
-    }
-
-    public ArrayList<Country> getCountryByRegion(String region) {
-        return useService("region/" + region);
-    }
-
-    public ArrayList<Country> getCountryBySubRegion(String subregion) {
-        return useService("subregion/" + subregion);
-    }
-
-    public ArrayList<Country> getCountryByDemonym(String demonym) {
-        return useService("demonym/" + demonym);
     }
 }
